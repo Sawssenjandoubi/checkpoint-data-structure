@@ -1,0 +1,59 @@
+ALGORITHM  sum_overlapping_elements
+VAR
+   tab1: ARRAY_OF INTEGER[];
+   tab2: ARRAY_OF INTEGER[];
+   i,j,sum,long1,long2 : INTEGER;
+
+BEGIN
+sum:=0;
+    REPEAT
+        wrrite("entrer contenu du tab1:");
+        read(long1);
+        wrrite("entrer contenu du tab2:");
+        read(long2);
+    UNTIL (long1<=0 And long2<=0)
+    
+    FOR i FROM 0 TO long1 -1 STEP 1 DO  
+    read(tab1[i]);
+    END_FOR
+     FOR j FROM 0 TO long2 -1 STEP 1 DO  
+    read(tab2[i]);
+    END_FOR
+    i:=0;
+    FOR i FROM 0 TO long1 -1 STEP 1  DO
+    FOR j FROM 0 TO mlong2 -1 STEP 1  DO
+        IF (tab1[i]=tab2[j]) THEN
+            sum := sum+ tab1[i] + tab2[j];
+        END_IF 
+    END_FOR
+        
+    END_FOR
+ i:=0;
+    WHILE (i < long1) DO
+        j:=0
+    WHILE (j < long2) DO
+        IF ( tab1[i] = tab2[j] ) THEN
+        j := j +1;
+        ELSE
+            i := i +1;
+            j:=0;
+        END_IF
+    END_WHILE
+    sum := sum + tab1[i]
+    END_WHILE
+    WHILE (j < long2) DO
+        i:=0
+    WHILE (i < long1) DO
+        IF ( tab1[i] = tab2[j] ) THEN
+        i := i +1;
+        ELSE
+            j := j +1;
+            i:=0;
+        END_IF
+    END_WHILE
+    sum := sum + tab2[j]
+    END_WHILE
+    Write(sum)
+END
+
+   
